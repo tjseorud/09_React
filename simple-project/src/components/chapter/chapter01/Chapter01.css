@@ -1,0 +1,10 @@
+p {
+  border: 1px solid salmon;
+}
+.title {
+  background-color: #FF00FF;
+}
+#writer {
+  background-color: black;
+  color: white;
+}
