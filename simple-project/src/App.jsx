@@ -15,6 +15,7 @@ import Chapter03B from './components/chapter/chapter03/Chapter03B';
 import Memo from './components/memo/Memo';
 import Foods from './components/busan/Foods';
 import FoodDetail from './components/busan/FoodDetail';
+import Template from './templet/template/Template';
 
 /*
   URL을 이용해서
@@ -46,6 +47,7 @@ function App() {
         <Route path="/memo" element={<Memo />} />
         <Route path="/foods" element={<Foods />} />
         <Route path="/foods/:id" element={<FoodDetail />} />
+        <Route path="/template" element={<Template />} />
         
         <Route path="/*" element={<h1>존재하지 않는 페이지 요청입니다.</h1>} />
       </Routes>      
