@@ -1,9 +1,11 @@
 import NavBar from "../navbar/Navbar";
 
+
 const Header = () => {
   return (
     <>
-      <NavBar />
+      <h2>여긴 Header</h2>
+      {/* <NavBar /> */}
     </>
   );
 };
