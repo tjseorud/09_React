@@ -12,7 +12,7 @@ const NavBar = () => {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand onClick={() => navi("/")}>
-            icon
+            🥕
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">HOME</Nav.Link>
@@ -23,10 +23,8 @@ const NavBar = () => {
             <Nav.Link onClick={() => navi("/Input")}>Input</Nav.Link>
             <Nav.Link href="/chap03b">Ch03B</Nav.Link>
             <Nav.Link href="/memo">Memo</Nav.Link>
-            <Nav.Link href="/">?</Nav.Link>
-            <Button variant="primary" >
-              로그인
-            </Button>
+            <Nav.Link onClick={() => navi("/foods")}>부산 맛집</Nav.Link>
+            <Button variant="primary" >버튼</Button>
           </Nav>
         </Container>
       </Navbar>

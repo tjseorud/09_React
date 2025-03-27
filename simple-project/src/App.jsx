@@ -13,6 +13,8 @@ import Chapter03Input from './components/chapter/chapter03/Chapter03Input';
 import NavBar from './templet/navbar/Navbar';
 import Chapter03B from './components/chapter/chapter03/Chapter03B';
 import Memo from './components/memo/Memo';
+import Foods from './components/busan/Foods';
+import FoodDetail from './components/busan/FoodDetail';
 
 /*
   URL을 이용해서
@@ -32,7 +34,7 @@ function App() {
       { false && <Chapter01 /> && <Chapter02 /> && <Chapter022 /> }
 
       <Header />
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<WhatIsReact />} />
         <Route path="/chap01" element={<Chapter01 />} />
@@ -42,6 +44,9 @@ function App() {
         <Route path="/input" element={<Chapter03Input />} />
         <Route path="/chap03b" element={<Chapter03B />} />
         <Route path="/memo" element={<Memo />} />
+        <Route path="/foods" element={<Foods />} />
+        <Route path="/foods/:id" element={<FoodDetail />} />
+        
         <Route path="/*" element={<h1>존재하지 않는 페이지 요청입니다.</h1>} />
       </Routes>      
       <Footer />

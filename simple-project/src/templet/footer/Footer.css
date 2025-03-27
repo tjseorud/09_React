@@ -1,19 +1,19 @@
 /* footer */
 .footer {
-    width: 80%;
+    width: auto;
     height: 200px; 
     margin: auto;
     margin-top: 50px;
 }
 #footer-1 {
-    width: 100%;
+    width: auto;
     height: 20%;
     padding-left:50px;
-    border-top: 1px solid 666;
-    border-bottom: 1px solid 666;
+    border-top: 1px solid none;
+    border-bottom: 1px solid none;
 }
 #footer-2 {
-    width: 100%; 
+    width: auto; 
     height: 80%;
     margin-top: 20px;
     padding-left:50px;
@@ -35,4 +35,5 @@
     padding: 10px;
     font-size: 13px;
     text-align: center;
+    border: none;
 }

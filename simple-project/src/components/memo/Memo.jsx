@@ -7,7 +7,7 @@ const StyledWrap = styled.div`
   width: 1000px;
   height: 800px;
   margin: auto;
-  padding: 25px;
+  padding: 25px auto;
   border: 1px solid gray;
   border-radius: 10px;
 `;
@@ -36,10 +36,16 @@ const StyledContent = styled.div`
   width: 90%;
   height: 60%;
   margin: auto;
-
+  padding: 7px;
+  font-width: 10px;
+  text-align: center;
 `;
 const StyledWriter = styled.div`
-  font-size: 15px;
+  width: 90%;
+  height: 20%;
+  margin: auto;
+  font-width: right;
+  text-align: right;
 `;
 
 const Memo = () => {
@@ -108,6 +114,7 @@ const Memo = () => {
         <br />
       </div>
       <Button variant="info" onClick={addMemo}>추가하기</Button>
+      
     </StyledWrap>
   )
 };
