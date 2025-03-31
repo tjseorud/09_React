@@ -7,7 +7,8 @@ const CommentList = (props) => {
   const id = props.id;
 
   useEffect(() => {
-    axios.get(`http://localhost/busans/comments/${id}`)
+    axios
+      .get(`http://localhost/busans/comments/${id}`)
       .then(result => {
         //console.log(result);
         setComment([...result.data]);

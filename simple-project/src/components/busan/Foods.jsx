@@ -26,7 +26,8 @@ const Foods = () => {
       method: 'get',
     }).then((result) => console.log(result)); 
     */
-    axios.get(`http://localhost/busans?pageNo=${pageNo}`)
+    axios
+      .get(`http://localhost/busans?pageNo=${pageNo}`)
       .then((result) => {
         //console.log(result);
         const response = result.data.getFoodKr.item;

@@ -26,7 +26,8 @@ const FoodDetail = () => {
 
   useEffect(() => {
     //window.scrollTo(0, 0);  // 화면 맨 위로 이동
-    axios.get(`http://localhost/busans/${id}`)
+    axios
+      .get(`http://localhost/busans/${id}`)
       .then(result => {
         //console.log(result);
         const response = result.data.getFoodKr.item[0];
@@ -85,24 +86,24 @@ const FoodDetail = () => {
       alert('내용을 입력해주세요.');
       return;
     }
-    /*
-      정규표현식!
-    */
-    axios.post(`http://localhost/busans/comments`, {
-      seq: id,
-      content: content,
-    }).then(result => {
-      console.log(result); 
-      setContent("");
-      isSuccess( !success);      
-    });
+    /* 정규표현식! */
+    axios
+      .post(`http://localhost/busans/comments`, {
+        seq: id,
+        content: content,
+      })
+      .then(result => {
+        console.log(result); 
+        setContent("");
+        isSuccess( !success);      
+      });
   };
 
   const contentHandler = (e) => {
     setContent(e.target.value);
   };
 
-  if(!load) {
+  if( !load) {
     return (
       <StyledWrap>
         <StyledTitle>데이터를 불러오는 중 입니다.</StyledTitle>
