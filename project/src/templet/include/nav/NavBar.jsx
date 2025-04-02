@@ -1,9 +1,6 @@
-import { Nav } from 'react-bootstrap';
-import { Navbar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Nav, Navbar, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 
 const NavBar = () => {
   const navi = useNavigate(); 
@@ -24,26 +21,29 @@ const NavBar = () => {
           <Button variant="primary" onClick={() => navi("/myPage")}>내정보</Button>
           <Button variant="primary" onClick={() => navi("/logout")}>로그아웃</Button>      
         </Nav>
-        <Modal show={show} onHide={loginHandleClose} align="center">
-          <Modal.Header closeButton>
-            <Modal.Title>로그인</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form action="/login" method="post">
-              <div>
-                <label for="userId">ID : </label>
-                <input type="text" placeholder="Enter ID" id="userId" name="memberId" /> <br />
-                <label for="userPwd" >Password : </label>
-                <input type="password" placeholder="Enter Password" id="userPwd" name="memberPw" />          
-              </div>
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={loginHandleClose}>취소</Button>
-            <Button variant="primary" onClick="submit">로그인</Button>
-          </Modal.Footer>
-        </Modal>
       </Navbar>
+      
+      <Modal 
+        show={show} 
+        onHide={loginHandleClose} 
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>로그인</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form action="/login" method="post">
+            <FloatingLabel controlId="memberId" >ID</FloatingLabel>
+            <Form.Control type="text" placeholder="Enter ID" id="memberId" name="memberId" />
+            <br/>
+            <FloatingLabel controlId="memberPw" >Password</FloatingLabel>
+            <Form.Control type="password" placeholder="Enter Password" id="memberPw" name="memberPw" />          
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={loginHandleClose}>취소</Button>
+          <Button variant="primary" onClick="submit">로그인</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

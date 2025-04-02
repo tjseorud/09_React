@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Button } from "react-bootstrap";
-import Modal from 'react-bootstrap/Modal';
+import { Button, Modal, Form, FloatingLabel, FormGroup } from "react-bootstrap";
 
 const MyPage = () => {
   const navi = useNavigate(); 
@@ -16,38 +15,35 @@ const MyPage = () => {
   return (
     <>
       <h2>내정보</h2>
-      <br/>
-      <form action="update-member" method="post">
-          <div class="form-group">
-              <label for="userId">* ID : </label>
-              <input type="text" class="form-control" id="userId" value="" name="memberId" readonly /> <br/>
-
-              <label for="userName">* Name : </label>
-              <input type="text" class="form-control" id="userName" value="" name="memberName" required /> <br />
-
-              <label for="email"> &nbsp; Email : </label>
-              <input type="text" class="form-control" id="email" value="" name="email" /> <br/>
-          </div> 
+      <Form action="update-member" method="post">  
+        <FormGroup className="mb-3">     
+          <FloatingLabel controlId="userId" >* ID </FloatingLabel>
+          <Form.Control type="text" id="userId" value="" name="memberId" readOnly /> 
           <br/>
-          <div align="center">
-              <Button variant="outline-danger" onClick={deleteHandle}>탈퇴하기</Button>
-              <Button variant="outline-success" onClick={updateHandle}>비밀번호 수정하기</Button>
-              <Button type="submit" variant="primary" >수정하기</Button>
-          </div>
-      </form>
+          <FloatingLabel controlId="userName">* Name</FloatingLabel>
+          <Form.Control type="text" id="userName" value="" name="memberName" required />          
+        </FormGroup>
+        <br />
+        <Button variant="outline-danger" onClick={deleteHandle}>탈퇴하기</Button>
+        <Button variant="outline-success" onClick={updateHandle}>비밀번호 수정하기</Button>
+        <Button type="submit" variant="primary" >수정하기</Button>          
+      </Form>
 
-      <Modal show={show} onHide={deleteHandleClose} align="center">
+      <Modal 
+        show={show} 
+        onHide={deleteHandleClose} 
+      >
         <Modal.Header closeButton>
           <Modal.Title>회원탈퇴</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form action="delete-member" method="post">
+          <Form action="delete-member" method="post">
             <div align="center">
               정말로 탈퇴 하시겠습니까? <br />
             </div>
-            <label for="userPwd">Password : </label>
-            <input type="password" placeholder="Enter Password" id="userPwd" name="memberPw" />
-          </form>
+            <FloatingLabel controlId="password">Password </FloatingLabel>
+            <Form.Control type="password" placeholder="Enter Password" id="password" name="password" />
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={deleteHandleClose}>취소</Button>
@@ -55,22 +51,25 @@ const MyPage = () => {
         </Modal.Footer>
       </Modal>
 
-      <Modal show={showPw} onHide={updateHandleClose} align="center">
+      <Modal 
+        show={showPw} 
+        onHide={updateHandleClose} 
+      >
         <Modal.Header closeButton>
           <Modal.Title>비밀번호 수정</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form action="update-pw" method="post">
-            <label for="userPwd">현재 Password : </label>
-            <input type="password" placeholder="Enter Password" id="userPwd" name="memberPw" /> <br />
-
-            <label for="userPwd">새 Password : </label>
-            <input type="password" placeholder="Enter New Password" id="userPwd" name="memberPw" />
-          </form>
+          <Form action="update-pw" method="post">
+            <FloatingLabel controlId="currentPassword">현재 Password </FloatingLabel>
+            <Form.Control type="password" placeholder="Enter Password" id="currentPassword" name="currentPassword" />
+            <br />
+            <FloatingLabel controlId="newPassword">새 Password </FloatingLabel>
+            <Form.Control type="password" placeholder="Enter New Password" id="newPassword" name="newPassword" />
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={updateHandleClose}>취소</Button>
-          <Button variant="success" type="submit" >수정하기</Button>
+          <Button variant="success" type="submit" >변경하기</Button>
         </Modal.Footer>
       </Modal>
     </>

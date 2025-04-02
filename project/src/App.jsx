@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import './App.css'
+// import './App.css'
 import Header from './templet/include/header/Header'
 import Footer from './templet/include/footer/Footer'
 import SignUp from './templet/include/member/SignUp';
